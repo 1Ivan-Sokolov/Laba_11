@@ -42,7 +42,7 @@ class CarFactory:
         if car_type == 'electric':
             return ElectricCar('Tesla')
         elif car_type == 'petrol':
-            return ElectricCar('Volkswagen Jetta')
+            return PetrolCar('Volkswagen Jetta')
         elif car_type == 'hybrid':
             return HybridCar('Toyota Prius')
 
