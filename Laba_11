@@ -1,0 +1,52 @@
+from abc import ABC, abstractmethod
+
+class Car:
+    @abstractmethod
+    def auto(self):
+        pass
+
+class ElectricCar(Car):
+    def __init__(self, name):
+        self.name=name
+
+    def charge(self):
+        print(f'{self.name} is charning')
+
+class PetrolCar(Car):
+    def __init__(self, name):
+        self.name=name
+
+    def refuel(self):
+        print(f'{self.name} is refuel')
+
+class HybridCar(ElectricCar, PetrolCar):
+    def __init__(self, name):
+        super().__init__(name)
+    
+    def refuel(self):
+        print(f'{self.name} is refueling with petrol')
+
+class CarDecorator:
+    def __init__(self, car):
+        self.car = car
+    
+    def auto_park(self):
+        print(f'{self.car.name} is parking itself')
+        
+    def gps_navigate(self, destination):
+        print(f'Navigating {self.car.name}
+
+class CarFactory:
+    @abstractmethod
+    def create_car(self, car_type, name):
+        if car_type == 'electric':
+            return ElectricCar('Tesla')
+        elif car_type == 'petrol':
+            return ElectricCar('Volkswagen Jetta')
+        elif car_type == 'hybrid':
+            return HybridCar('Toyota Prius')
+
+factory = CarFactory()
+car = factory.create_car('electric')
+print(car)
+decorated_car = CarDecorator(car) decorated_car.auto_park() decorated_car.gps_navigate('Los Angeles')
